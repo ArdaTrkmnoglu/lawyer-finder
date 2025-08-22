@@ -38,6 +38,7 @@
   <main>
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Anahtar kelime...">
+      <button id="search-button" onclick="filterBureaus()">Ara</button>
       <br><br>
       <select id="fieldSelect">
         <option value="">Tüm Alanlar</option>
@@ -46,7 +47,6 @@
         <option value="Aile Hukuku">Aile Hukuku</option>
         <option value="İş Hukuku">İş Hukuku</option>
       </select>
-      <button id="search-button" onclick="filterBureaus()">Ara</button>
     </div>
 
     <div class="bureau-list" id="bureauList"></div>
