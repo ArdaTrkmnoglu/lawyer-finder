@@ -6,14 +6,14 @@ body {
     margin: 0;
     padding: 0;
     background: #f9f9f9;
-    background-image: url(background.jpg);
+    background-image: url(backgrounds/wood-bg.jpg);
     background-repeat: no-repeat;
     background-size: auto;
     background-attachment: fixed;
 }
 
 header {
-    background-color: #6c00ac;
+    background-color: #ac4d00;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     padding: 1rem;
@@ -31,7 +31,7 @@ main {
 }
 
 footer {
-    background-color: #6c00ac;
+    background-color: #ac4d00;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     padding: 1rem;
@@ -201,7 +201,7 @@ footer {
 }
 
 .bureau-link {
-    color: #6c00ac;
+    color: #ac4d00;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -212,7 +212,7 @@ footer {
 
 .logout-button {
     margin-left: 1rem;
-    background: #6c00ac;
+    background: #ac4d00;
     color: white;
     border: none;
     padding: 0.3rem 0.6rem;
@@ -259,7 +259,7 @@ footer {
 
 @media (min-width:2000px) {
     body {
-        background-image: url(background_large.jpg);
+        background-image: url(backgrounds/wood-bg-2x.jpg);
     }
 }
 
