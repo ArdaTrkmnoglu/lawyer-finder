@@ -90,6 +90,7 @@ footer {
     font-size: medium;
     height: 35px;
     box-shadow: 2px 1px 7px black;
+    margin-top: 20px;
 }
 
 #search-button:hover {
