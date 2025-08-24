@@ -85,6 +85,9 @@
         document.getElementById('authMessage').innerText = 'Geçersiz kullanıcı adı veya şifre.';
       }
     }
+    document.getElementById("menu").addEventListener("click", function() {
+      document.querySelector(".navbar").classList.toggle("active");
+    });
   </script>
 
 </body>
