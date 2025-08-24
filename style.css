@@ -279,6 +279,11 @@ footer {
     .navbar a:hover .navbar {
         display: block;
     }
+
+    footer {
+        background-color: hsla(223, 48%, 49%, 0.5);
+        backdrop-filter: blur(15px);
+    }
 }
 
 @media (min-width:2000px) {
