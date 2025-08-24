@@ -6,8 +6,8 @@ body {
     margin: 0;
     padding: 0;
     background: #f9f9f9;
-    background-image: linear-gradient(52deg, rgb(167, 158, 158), rgb(109, 139, 141));
-    /* background-image: url(backgrounds/background.jpg); */ 
+    /* background-image: linear-gradient(52deg, rgb(167, 158, 158), rgb(109, 139, 141)); */
+    background-image: url(backgrounds/background.jpg); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
@@ -288,8 +288,6 @@ footer {
     }
 }
 
-/*
-
 @media (max-width:1600px) {
     body {
         background-image: url(backgrounds/background_small.jpg);
@@ -313,8 +311,6 @@ footer {
         background-image: url(backgrounds/background_2xlarge.jpg);
     }
 }
-
-*/
 
 @keyframes slideUp {
     from{transform: translateY(20px);}
