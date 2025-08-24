@@ -36,6 +36,7 @@ footer {
     backdrop-filter: blur(25px);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
+    text-shadow: 2px 2px 5px black;
     padding: 1rem;
     text-align: center;
 }
@@ -128,8 +129,10 @@ footer {
 }
 
 .lawyer-card {
-    background: white;
+    background-color: hsla(0, 0%, 100%, 0.15);
+    backdrop-filter: blur(20px);
     padding: 1rem;
+    margin-bottom: 5px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     cursor: pointer;
@@ -203,6 +206,7 @@ footer {
     text-decoration: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: block;
+    border-radius: 10px;
     text-align: center;
     padding: 15px;
     width: 90px;
@@ -211,7 +215,6 @@ footer {
 
 .navbar a:hover {
     background-color: #4040407e;
-    border-radius: 10px;
 }
 
 .navbar li {
@@ -220,7 +223,8 @@ footer {
 }
 
 .bureau-link {
-    color: #ac4d00;
+    color: rgb(0, 90, 255);
+    text-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -231,7 +235,7 @@ footer {
 
 .logout-button {
     margin-left: 1rem;
-    background: #ac4d00;
+    background: black;
     color: white;
     border: none;
     padding: 0.3rem 0.6rem;
@@ -240,7 +244,8 @@ footer {
 }
 
 .about {
-    background-color: #f9f9f9;
+    background-color: hsla(0, 0%, 100%, 0.15);
+    backdrop-filter: blur(25px);
     padding: 10px;
     padding-left: 1.25em;
     border-radius: 20px;
