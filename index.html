@@ -1,131 +1,142 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ana Sayfa - avukatım.com</title>
-  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="Türkiye'nin en kapsamlı avukat ve hukuk bürosu arama platformu. Aradığınız hukuk bürosunu saniyeler içerisinde bulun." />
+	<title>Ana Sayfa - avukatım.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <a href="index.html" style="text-decoration: none;"><h1 class="main-header">avukatım.com</h1></a>
-    <p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
-  </header>
+	<header>
+		<a href="index.html" style="text-decoration: none;">
+			<h1 class="main-header">avukatım.com</h1>
+		</a>
+		<p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
+	</header>
 
-  <div class="top-bar">
+	<div class="top-bar">
 
-    <div class="navigation">
-      <img id="menu" src="menu.png" width="38px">
+		<div class="navigation">
+			<img id="menu" src="menu.png" width="38px">
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkında</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-      </ul>
-    </nav>
-    </div>
+			<nav class="navbar">
+				<ul>
+					<li><a href="index.html">Ana Sayfa</a></li>
+					<li><a href="about.html">Hakkında</a></li>
+					<li><a href="contact.html">İletişim</a></li>
+				</ul>
+			</nav>
+		</div>
 
-    <span class="register" id="userSection">
-    <a href="register.html">
-      <img src="person.crop.circle.png" alt="Giriş Yap / Kayıt Ol" width="38px">
-    </a>
-    </span>
+		<span class="register" id="userSection">
+			<a href="register.html">
+				<img src="person.crop.circle.png" alt="Giriş Yap / Kayıt Ol" width="38px">
+			</a>
+		</span>
 
-  </div>
+	</div>
 
-  <main>
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Anahtar kelime...">
-      <button id="search-button" onclick="filterBureaus()">Ara</button>
-      <br><br>
-      <select id="fieldSelect">
-        <option value="">Tüm Alanlar</option>
-        <option value="Ceza Hukuku">Ceza Hukuku</option>
-        <option value="Ticaret Hukuku">Ticaret Hukuku</option>
-        <option value="Aile Hukuku">Aile Hukuku</option>
-        <option value="İş Hukuku">İş Hukuku</option>
-      </select>
-    </div>
+	<main>
+		<div class="search-container">
+			<input type="text" id="searchInput" placeholder="Anahtar kelime...">
+			<button id="search-button" onclick="filterBureaus()">Ara</button>
+			<br><br>
+			<select id="fieldSelect">
+				<option value="">Tüm Alanlar</option>
+				<option value="Ceza Hukuku">Ceza Hukuku</option>
+				<option value="Ticaret Hukuku">Ticaret Hukuku</option>
+				<option value="Aile Hukuku">Aile Hukuku</option>
+				<option value="İş Hukuku">İş Hukuku</option>
+			</select>
+		</div>
 
-    <div class="bureau-list" id="bureauList"></div>
-  </main>
+		<div class="bureau-list" id="bureauList"></div>
+	</main>
 
-  <footer>
-    <p>avukatım.com - Demo</p>
-    <p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
-  </footer>
+	<footer>
+		<p>avukatım.com - Demo</p>
+		<p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
+	</footer>
 
-  <script>
-    let bureaus = [];
-    fetch("burolar.json")
-      .then(response => response.json())
-      .then(data => {
-        bureaus = data;
-      })
-      .catch(error => {
-        console.error('Veriler yüklenirken hata oluştu:', error);
-      });
+	<script>
+		let bureaus = [];
+		fetch("burolar.json")
+			.then(response => response.json())
+			.then(data => {
+				bureaus = data;
+			})
+			.catch(error => {
+				console.error('Veriler yüklenirken hata oluştu:', error);
+			});
 
-    function displayBureaus(filteredBureaus) {
-      const container = document.getElementById('bureauList');
-      container.innerHTML = '';
-      container.style.display = 'grid';
-      filteredBureaus.forEach(bureau => {
-        const card = document.createElement('div');
-        card.className = 'lawyer-card';
-        card.innerHTML = `
+		function displayBureaus(filteredBureaus) {
+			const container = document.getElementById('bureauList');
+			container.innerHTML = '';
+			container.style.display = 'grid';
+			filteredBureaus.forEach(bureau => {
+				const card = document.createElement('div');
+				card.className = 'lawyer-card';
+				card.innerHTML = `
           <h3><a class="bureau-link" href="bureau.html?id=${bureau.id}">${bureau.name}</a></h3>
           <p><strong>Alan:</strong> ${bureau.field}</p>
           <p><strong>Şehir:</strong> ${bureau.city}</p>
         `;
-        container.appendChild(card);
-      });
-    }
+				container.appendChild(card);
+			});
+		}
 
-    function filterBureaus() {
-      const searchInput = document.getElementById('searchInput').value.toLowerCase();
-      const field = document.getElementById('fieldSelect').value;
+		function filterBureaus() {
+			const searchInput = document.getElementById('searchInput').value.toLowerCase();
+			const field = document.getElementById('fieldSelect').value;
 
-      const filtered = bureaus.filter(bureau => {
-        const matchesNameOrCity = bureau.name.toLowerCase().includes(searchInput) || bureau.city.toLowerCase().includes(searchInput) || bureau.field.toLowerCase().includes(searchInput) || bureau.keywords.toLowerCase().includes(searchInput) || bureau.description.toLowerCase().includes(searchInput);
-        const matchesField = field === '' || bureau.field === field;
-        return matchesNameOrCity && matchesField;
-      });
+			const filtered = bureaus.filter(bureau => {
+				const matchesNameOrCity = bureau.name.toLowerCase().includes(searchInput) || bureau.city.toLowerCase().includes(searchInput) || bureau.field.toLowerCase().includes(searchInput) || bureau.keywords.toLowerCase().includes(searchInput) || bureau.description.toLowerCase().includes(searchInput);
+				const matchesField = field === '' || bureau.field === field;
+				return matchesNameOrCity && matchesField;
+			});
 
-      displayBureaus(filtered);
-    }
+			displayBureaus(filtered);
+		}
 
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
+		function getQueryParam(param) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(param);
+		}
 
-    search = document.getElementById("searchInput");
-    search.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("search-button").click();
-    }
-    })
+		search = document.getElementById("searchInput");
+		search.addEventListener("keypress", function (event) {
+			if (event.key === "Enter") {
+				event.preventDefault();
+				document.getElementById("search-button").click();
+			}
+		})
 
-    function logout() {
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'index.html';
-    }
+		function logout() {
+			localStorage.removeItem('loggedInUser');
+			window.location.href = 'index.html';
+		}
 
-    window.onload = () => {
-      const user = getQueryParam('user') || localStorage.getItem('loggedInUser');
-      if (user) {
-        document.getElementById('userSection').innerHTML = `<strong>Merhaba, ${user}</strong><button class="logout-button" onclick="logout()">Çıkış Yap</button>`;
-      }
-      document.getElementById('bureauList').style.display = 'none';
-    }
+		window.onload = () => {
+			const user = getQueryParam('user') || localStorage.getItem('loggedInUser');
+			if (user) {
+				document.getElementById('userSection').innerHTML = `<strong>Merhaba, ${user}</strong><button class="logout-button" onclick="logout()">Çıkış Yap</button>`;
+			}
+			document.getElementById('bureauList').style.display = 'none';
+		}
 
-    document.getElementById("menu").addEventListener("click", function() {
-      document.querySelector(".navbar").classList.toggle("active");
-    });
-  </script>
+		document.getElementById("menu").addEventListener("click", function () {
+			document.querySelector(".navbar").classList.toggle("active");
+		});
+	</script>
 </body>
+
 </html>

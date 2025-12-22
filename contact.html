@@ -1,55 +1,80 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - avukatım.com</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="avukatım.com iletişim bilgileri - Bize ulaşın.">
+	<title>İletişim - avukatım.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <a href="index.html" style="text-decoration: none;"><h1 class="main-header">avukatım.com</h1></a>
-    <p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
-  </header>
+	<header>
+		<a href="index.html" style="text-decoration: none;">
+			<h1 class="main-header">avukatım.com</h1>
+		</a>
+		<p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
+	</header>
 
-  <div class="top-bar">
+	<div class="top-bar">
 
-    <div class="navigation">
-      <img id="menu" src="menu.png" width="38px">
+		<div class="navigation">
+			<img id="menu" src="menu.png" width="38px">
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkında</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-      </ul>
-    </nav>
+			<nav class="navbar">
+				<ul>
+					<li><a href="index.html">Ana Sayfa</a></li>
+					<li><a href="about.html">Hakkında</a></li>
+					<li><a href="contact.html">İletişim</a></li>
+				</ul>
+			</nav>
 
-    </div>
+		</div>
 
-    <span class="register" id="userSection">
-    <a href="register.html">
-      <img src="person.crop.circle.png" alt="Giriş Yap / Kayıt Ol" width="38px">
-    </a>
-    </span>
+		<span class="register" id="userSection">
+			<a href="register.html">
+				<img src="person.crop.circle.png" alt="Giriş Yap / Kayıt Ol" width="38px">
+			</a>
+		</span>
 
-  </div>
+	</div>
 
-  <main style="padding-left: 3%; color: white;">
-    <h2>Arda Türkmenoğlu</h3>
-    <h3>Web Sitesi: <a id="links" href="https://ardatrkmnoglu.com">ardatrkmnoglu.com</a></h2>
-    <h3>GitHub: <a id="links" href="https://github.com/ArdaTrkmnoglu">ArdaTrkmnoglu</a></h2>
-  </main>
+	<main>
+		<div class="about" style="max-width: 600px; margin: 2rem auto; text-align: center;">
+			<h2 style="color: white; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">İletişim</h2>
 
-  <footer>
-    <p>avukatım.com - Demo</p>
-    <p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
-  </footer>
+			<div style="margin-bottom: 1.5rem;">
+				<h3 style="color: white; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600;">
+					Arda Türkmenoğlu</h3>
+				<p style="color: rgba(255,255,255,0.8); margin: 0.5rem 0;">
+					<strong style="color: rgba(255,255,255,0.6);">Web Sitesi:</strong>
+					<a id="links" href="https://ardatrkmnoglu.com" target="_blank" rel="noopener">ardatrkmnoglu.com</a>
+				</p>
+				<p style="color: rgba(255,255,255,0.8); margin: 0.5rem 0;">
+					<strong style="color: rgba(255,255,255,0.6);">GitHub:</strong>
+					<a id="links" href="https://github.com/ArdaTrkmnoglu" target="_blank"
+						rel="noopener">ArdaTrkmnoglu</a>
+				</p>
+			</div>
+		</div>
+	</main>
 
-  <script>
-    document.getElementById("menu").addEventListener("click", function() {
-      document.querySelector(".navbar").classList.toggle("active");
-    });
-  </script>
+	<footer>
+		<p>avukatım.com - Demo</p>
+		<p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
+	</footer>
+
+	<script>
+		document.getElementById("menu").addEventListener("click", function () {
+			document.querySelector(".navbar").classList.toggle("active");
+		});
+	</script>
 </body>
+
 </html>

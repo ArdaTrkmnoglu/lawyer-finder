@@ -1,126 +1,339 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detay - avukatım.com</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: rgb(65, 100, 185);
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    .main-header {
-    text-shadow: 2px 2px 5px black;
-    color: white;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: black;
-    }
-    p {
-      margin: 0.5rem 0;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 1rem;
-      text-decoration: none;
-      color: black;
-    }
-    main {
-    flex: 1;
-    padding: 20px;
-    }
-    footer {
-        background-color: rgb(65, 100, 185);
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-    }
-  </style>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Hukuk bürosu detay sayfası - avukatım.com">
+	<title>Detay - avukatım.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.bureau-detail-container {
+			max-width: 900px;
+			margin: 2rem auto;
+			padding: 2.5rem;
+			background: rgba(255, 255, 255, 0.08);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			border-radius: 24px;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		.bureau-detail-container h1 {
+			font-family: 'Playfair Display', serif;
+			font-size: 2.5rem;
+			background: linear-gradient(135deg, #fff 0%, #e0e7ff 50%, #c7d2fe 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 1.5rem;
+			padding-bottom: 1rem;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.bureau-detail-container .detail-item {
+			display: flex;
+			align-items: flex-start;
+			gap: 1rem;
+			padding: 1rem 0;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		}
+
+		.bureau-detail-container .detail-item:last-of-type {
+			border-bottom: none;
+		}
+
+		.bureau-detail-container .detail-icon {
+			width: 40px;
+			height: 40px;
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+		.bureau-detail-container .detail-icon svg {
+			width: 20px;
+			height: 20px;
+			fill: white;
+		}
+
+		.bureau-detail-container .detail-content strong {
+			display: block;
+			font-family: 'Inter', sans-serif;
+			font-weight: 600;
+			color: rgba(255, 255, 255, 0.6);
+			font-size: 0.85rem;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			margin-bottom: 0.25rem;
+		}
+
+		.bureau-detail-container .detail-content span {
+			font-family: 'Inter', sans-serif;
+			font-size: 1.1rem;
+			color: rgba(255, 255, 255, 0.9);
+			line-height: 1.6;
+		}
+
+		.back-button {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.75rem;
+			margin-top: 2rem;
+			padding: 0.875rem 1.5rem;
+			background: rgba(255, 255, 255, 0.08);
+			border: 2px solid rgba(255, 255, 255, 0.18);
+			border-radius: 50px;
+			color: white;
+			font-family: 'Inter', sans-serif;
+			font-weight: 600;
+			font-size: 1rem;
+			text-decoration: none;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.back-button:hover {
+			background: rgba(255, 255, 255, 0.15);
+			border-color: #667eea;
+			transform: translateX(-8px);
+			box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+		}
+
+		.back-button svg {
+			width: 20px;
+			height: 20px;
+			fill: currentColor;
+			transition: transform 0.3s ease;
+		}
+
+		.back-button:hover svg {
+			transform: translateX(-4px);
+		}
+
+		.loading-state {
+			text-align: center;
+			padding: 3rem;
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		.loading-spinner {
+			width: 48px;
+			height: 48px;
+			border: 3px solid rgba(255, 255, 255, 0.1);
+			border-top: 3px solid #667eea;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+			margin: 0 auto 1rem;
+		}
+
+		@keyframes spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.error-state {
+			text-align: center;
+			padding: 3rem;
+			color: #fca5a5;
+		}
+
+		.error-state h2 {
+			margin-bottom: 1rem;
+		}
+	</style>
 </head>
+
 <body>
-  
-  <header>
-          <a href="index.html" style="text-decoration: none;"><h1 class="main-header">avukatım.com</h1></a>
-          <p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
-  </header>
-    <div class="container" id="bureauDetail">
-      <h2>Yükleniyor...</h2>
-    </div>
 
-  <main>
-  <script>
-    let bureaus = [];
-    fetch("burolar.json")
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Ağ hatası: ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then(data => {
-        bureaus = data;
-        displayBureauDetail(); 
-      })
-      .catch(error => {
-        console.error('Veriler yüklenirken hata oluştu:', error);
-        document.getElementById("bureauDetail").innerHTML = '<h1>Veriler yüklenirken hata oluştu.</h1>';
-      });
+	<header>
+		<a href="index.html" style="text-decoration: none;">
+			<h1 class="main-header">avukatım.com</h1>
+		</a>
+		<p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
+	</header>
 
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
+	<div class="top-bar">
+		<div class="navigation">
+			<img id="menu" src="menu.png" width="38px" alt="Menü">
+			<nav class="navbar">
+				<ul>
+					<li><a href="index.html">Ana Sayfa</a></li>
+					<li><a href="about.html">Hakkında</a></li>
+					<li><a href="contact.html">İletişim</a></li>
+				</ul>
+			</nav>
+		</div>
 
-    function displayBureauDetail() {
-      const id = parseInt(getQueryParam("id"));
-      const bureau = bureaus.find(b => b.id === id);
+		<span class="register" id="userSection">
+			<a href="register.html">
+				<img src="person.crop.circle.png" alt="Giriş Yap / Kayıt Ol" width="38px">
+			</a>
+		</span>
+	</div>
 
-      const container = document.getElementById("bureauDetail");
-      if (!bureau) {
-        container.innerHTML = '<h1>Büro bulunamadı.</h1>';
-        return;
-      }
+	<main>
+		<div class="bureau-detail-container" id="bureauDetail">
+			<div class="loading-state">
+				<div class="loading-spinner"></div>
+				<p>Yükleniyor...</p>
+			</div>
+		</div>
+	</main>
 
-      container.innerHTML = `
+	<footer>
+		<p>avukatım.com - Demo</p>
+		<p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
+	</footer>
+
+	<script>
+		let bureaus = [];
+		fetch("burolar.json")
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Ağ hatası: ' + response.statusText);
+				}
+				return response.json();
+			})
+			.then(data => {
+				bureaus = data;
+				displayBureauDetail();
+			})
+			.catch(error => {
+				console.error('Veriler yüklenirken hata oluştu:', error);
+				document.getElementById("bureauDetail").innerHTML = `
+          <div class="error-state">
+            <h2>Veriler yüklenirken hata oluştu</h2>
+            <p>Lütfen daha sonra tekrar deneyin.</p>
+            <a href="index.html" class="back-button">
+              <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              Ana Sayfaya Dön
+            </a>
+          </div>
+        `;
+			});
+
+		function getQueryParam(param) {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get(param);
+		}
+
+		function displayBureauDetail() {
+			const id = parseInt(getQueryParam("id"));
+			const bureau = bureaus.find(b => b.id === id);
+
+			const container = document.getElementById("bureauDetail");
+			if (!bureau) {
+				container.innerHTML = `
+          <div class="error-state">
+            <h2>Büro bulunamadı</h2>
+            <p>Aradığınız büro sistemde kayıtlı değil.</p>
+            <a href="index.html" class="back-button">
+              <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              Ana Sayfaya Dön
+            </a>
+          </div>
+        `;
+				return;
+			}
+
+			container.innerHTML = `
         <h1>${bureau.name}</h1>
-        <p><strong>Uzmanlık Alanı:</strong> ${bureau.field}</p>
-        <p><strong>Şehir:</strong> ${bureau.city}</p>
-        <p><strong>Telefon:</strong> ${bureau.phone || 'Bilgi yok'}</p>
-        <p><strong>Adres:</strong> ${bureau.address || 'Bilgi yok'}</p>
-        <p><strong>Çalışma Saatleri:</strong> ${bureau.hours || 'Bilgi yok'}</p>
-        <p><strong>Açıklama:</strong> ${bureau.description}</p>
-        <a href="index.html" class="back-link"><img src='back2.png' width="38px"></a>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Uzmanlık Alanı</strong>
+            <span>${bureau.field}</span>
+          </div>
+        </div>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Şehir</strong>
+            <span>${bureau.city}</span>
+          </div>
+        </div>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Telefon</strong>
+            <span>${bureau.phone || 'Bilgi yok'}</span>
+          </div>
+        </div>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Adres</strong>
+            <span>${bureau.address || 'Bilgi yok'}</span>
+          </div>
+        </div>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Çalışma Saatleri</strong>
+            <span>${bureau.hours || 'Bilgi yok'}</span>
+          </div>
+        </div>
+        
+        <div class="detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          </div>
+          <div class="detail-content">
+            <strong>Açıklama</strong>
+            <span>${bureau.description}</span>
+          </div>
+        </div>
+        
+        <a href="index.html" class="back-button">
+          <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          Ana Sayfaya Dön
+        </a>
       `;
-    }
+		}
 
-  </script>
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-  </main>
-
-  <footer>
-    <p>avukatım.com - Demo</p>
-    <p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
-  </footer>
+		document.getElementById("menu").addEventListener("click", function () {
+			document.querySelector(".navbar").classList.toggle("active");
+		});
+	</script>
 
 </body>
+
 </html>

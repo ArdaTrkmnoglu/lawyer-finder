@@ -1,93 +1,102 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giriş Yap - avukatım.com</title>
-  <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="avukatım.com'a giriş yapın veya kayıt olun.">
+	<title>Giriş Yap - avukatım.com</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <a href="index.html" style="text-decoration: none;"><h1 class="main-header">avukatım.com</h1></a>
-    <p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
-  </header>
+	<header>
+		<a href="index.html" style="text-decoration: none;">
+			<h1 class="main-header">avukatım.com</h1>
+		</a>
+		<p>Aradığınız Büroyu Saniyeler İçerisinde Bulun</p>
+	</header>
 
-  <div class="top-bar">
+	<div class="top-bar">
 
-    <div class="navigation">
-      <img id="menu" src="menu.png" width="38px">
+		<div class="navigation">
+			<img id="menu" src="menu.png" width="38px">
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkında</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-      </ul>
-    </nav>
+			<nav class="navbar">
+				<ul>
+					<li><a href="index.html">Ana Sayfa</a></li>
+					<li><a href="about.html">Hakkında</a></li>
+					<li><a href="contact.html">İletişim</a></li>
+				</ul>
+			</nav>
 
-    </div>
+		</div>
 
-    <div class="register">
-      <a href="index.html">
-        <img src="back.png" alt="Geri Dön" width="38px">
-      </a>
-    </div>
+		<div class="register">
+			<a href="index.html">
+				<img src="back.png" alt="Geri Dön" width="38px">
+			</a>
+		</div>
 
-  </div>
+	</div>
 
-  
 
-  <main>
-    <div class="auth-container">
-      <h2>Giriş / Kayıt</h2>
-      <input type="text" id="username" placeholder="Kullanıcı adı">
-      <input type="password" id="password" placeholder="Şifre">
-      <br><br>
-      <button class="reg-button" onclick="login()">Giriş Yap</button>
-      &nbsp;
-      <button class="reg-button" onclick="register()">Kayıt Ol</button>
-      <p id="authMessage"></p>
-    </div>
-  </main>
 
-  <footer>
-    <p>avukatım.com - Demo</p>
-    <p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
-  </footer>
+	<main>
+		<div class="auth-container">
+			<h2>Giriş / Kayıt</h2>
+			<input type="text" id="username" placeholder="Kullanıcı adı">
+			<input type="password" id="password" placeholder="Şifre">
+			<br><br>
+			<button class="reg-button" onclick="login()">Giriş Yap</button>
+			&nbsp;
+			<button class="reg-button" onclick="register()">Kayıt Ol</button>
+			<p id="authMessage"></p>
+		</div>
+	</main>
 
-  <script>
-    let users = [];
-    let currentUser = null;
+	<footer>
+		<p>avukatım.com - Demo</p>
+		<p>&copy;2025 Fatih Doğmaz, A. Arda Türkmenoğlu</p>
+	</footer>
 
-    function register() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      if (users.some(u => u.username === username)) {
-        document.getElementById('authMessage').innerText = 'Bu kullanıcı adı zaten kayıtlı.';
-      } else {
-        users.push({ username, password });
-        document.getElementById('authMessage').innerText = 'Kayıt başarılı!';
-      }
-    }
+	<script>
+		let users = [];
+		let currentUser = null;
 
-    function login() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const user = users.find(u => u.username === username && u.password === password);
-      if (user) {
-        currentUser = user;
-        document.getElementById('authMessage').innerText = `Hoş geldin, ${username}!`;
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1000);
-      } else {
-        document.getElementById('authMessage').innerText = 'Geçersiz kullanıcı adı veya şifre.';
-      }
-    }
-    document.getElementById("menu").addEventListener("click", function() {
-      document.querySelector(".navbar").classList.toggle("active");
-    });
-  </script>
+		function register() {
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			if (users.some(u => u.username === username)) {
+				document.getElementById('authMessage').innerText = 'Bu kullanıcı adı zaten kayıtlı.';
+			} else {
+				users.push({ username, password });
+				document.getElementById('authMessage').innerText = 'Kayıt başarılı!';
+			}
+		}
+
+		function login() {
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			const user = users.find(u => u.username === username && u.password === password);
+			if (user) {
+				currentUser = user;
+				document.getElementById('authMessage').innerText = `Hoş geldin, ${username}!`;
+				setTimeout(() => {
+					window.location.href = "index.html";
+				}, 1000);
+			} else {
+				document.getElementById('authMessage').innerText = 'Geçersiz kullanıcı adı veya şifre.';
+			}
+		}
+		document.getElementById("menu").addEventListener("click", function () {
+			document.querySelector(".navbar").classList.toggle("active");
+		});
+	</script>
 
 </body>
