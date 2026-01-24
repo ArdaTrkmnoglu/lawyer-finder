@@ -1,10 +1,10 @@
 :root {
-	--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	--primary-gradient: linear-gradient(135deg, #667eea 0%, #4ba285 100%);
 	--accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 	--dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 
 	--primary-color: #667eea;
-	--accent-color: #f093fb;
+	--accent-color: #be93fb;
 	--text-primary: #ffffff;
 	--text-secondary: rgba(255, 255, 255, 0.92);
 	--text-muted: rgba(255, 255, 255, 0.75);
@@ -51,8 +51,7 @@ body {
 	font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-	background-image: url(backgrounds/background.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(backgrounds/background.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -525,14 +524,14 @@ main {
 }
 
 #links {
-	color: #a5b4fc;
+	color: #90a2fe;
 	text-decoration: none;
 	font-weight: 500;
 	transition: var(--transition-fast);
 }
 
 #links:hover {
-	color: #c7d2fe;
+	color: #b9c7fd;
 	text-decoration: underline;
 }
 
@@ -854,44 +853,42 @@ footer img {
 
 @media (max-width: 1600px) {
 	body {
-		background-image: url(backgrounds/background_small.jpg);
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(backgrounds/background_small.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
 	}
 }
 
 @media (min-width: 1900px) {
 	body {
-		background-image: url(backgrounds/background_large.jpg);
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(backgrounds/background_large.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
 	}
 }
 
 @media (min-width: 2150px) {
 	body {
-		background-image: url(backgrounds/background_xlarge.jpg);
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(backgrounds/background_xlarge.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
 	}
 }
 
 @media (min-width: 2750px) {
 	body {
-		background-image: url(backgrounds/background_2xlarge.jpg);
+		background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(backgrounds/background_2xlarge.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
 	}
-}
-
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-}
-
-::-webkit-scrollbar-track {
-	background: rgba(0, 0, 0, 0.2);
-}
-
-::-webkit-scrollbar-thumb {
-	background: linear-gradient(180deg, var(--primary-color), #764ba2);
-	border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: linear-gradient(180deg, #7c8fef, #8b5cb6);
 }
 
 ::selection {
